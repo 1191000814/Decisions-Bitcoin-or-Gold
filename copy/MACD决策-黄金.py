@@ -3,7 +3,7 @@
 """
 
 from MACD import Macd
-from Trading import Trading
+from work.Trading import Trading
 from icecream import ic
 
 import numpy as np

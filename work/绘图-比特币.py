@@ -25,9 +25,9 @@ if __name__ == '__main__':
     buy_days = []
     sell_days = []
     for day in range(Trading.DAYS - 1):
-        if (macd_list[day + 1] < 0) & (macd_list[day] > 0): # 买点
+        if (macd_list[day + 1] < 0) & (macd_list[day] > 0):  # 买点
             buy_days.append(day + 1)
-        elif (macd_list[day + 1] > 0) & (macd_list[day] < 0): # 卖点
+        elif (macd_list[day + 1] > 0) & (macd_list[day] < 0):  # 卖点
             sell_days.append(day + 1)
 
     buy_points = np.arange(len(buy_days))
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         sell_points[i] = Trading.BTC_VALUE[day] / 5000
         i += 1
     x = np.arange(Trading.DAYS)
-    plt.figure(figsize = (60, 40), dpi = 120)
+    plt.figure(figsize=(60, 40), dpi=120)
     plt.xlabel("date")
     plt.ylabel("value")
     plt.plot(x, Trading.BTC_VALUE / 5000, color="b", label="value")
@@ -51,9 +51,9 @@ if __name__ == '__main__':
     # plt.bar(x, macd_list, color="g", label="macd")
 
     for day in buy_days:
-        plt.scatter(buy_days, buy_points, color="red", linewidths = 0.001)
+        plt.scatter(buy_days, buy_points, color="red", linewidths=0.001)
     for day in sell_days:
-        plt.scatter(sell_days, sell_points, color="green", linewidths = 0.001)
+        plt.scatter(sell_days, sell_points, color="green", linewidths=0.001)
 
     plt.legend()
     plt.show()
